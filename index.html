@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chloe and Shern's Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Chloe and Shern's Restaurant</h1>
+    </header>
+
+    <nav class="category-filters">
+        <label for="category-select">Filter by Category:</label>
+        <select id="category-select" class="category-dropdown">
+            <option value="all">All</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Drinks">Drinks</option>
+            <option value="Indian">Indian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Western">Western</option>
+        </select>
+    </nav>
+
+    <main>
+        <div class="gallery-grid" id="gallery">
+            <!-- Photos will be dynamically inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox hidden" id="lightbox">
+        <span class="close-btn" id="close-lightbox">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" alt="">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Chloe and Shern's Restaurant. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
