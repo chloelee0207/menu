@@ -36,7 +36,7 @@ class PhotoGalleryHandler(SimpleHTTPRequestHandler):
         image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
 
         # Scan each category folder (in alphabetical order)
-        categories = ['Chinese', 'Desserts', 'Drinks', 'Fusion', 'Indian', 'Japanese', 'Korean', 'Western']
+        categories = ['Chinese', 'Desserts', 'Drinks', 'Fusion', 'Indian', 'Japanese', 'Korean', 'Malaysian', 'Western']
 
         for category in categories:
             category_path = photos_dir / category

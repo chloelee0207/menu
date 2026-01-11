@@ -21,8 +21,8 @@ def scan_photos():
         print(f"Error: {photos_dir} directory not found!")
         return
 
-    # Scan each category folder
-    categories = ['Chinese', 'Korean', 'Japanese', 'Western']
+    # Scan each category folder (in alphabetical order)
+    categories = ['Chinese', 'Desserts', 'Drinks', 'Fusion', 'Indian', 'Japanese', 'Korean', 'Malaysian', 'Western']
 
     for category in categories:
         category_path = photos_dir / category

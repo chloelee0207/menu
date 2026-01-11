@@ -1,11 +1,93 @@
 {
   "Chinese": [
-    "Mala Drypot.jpg"
+    "ABC Soup.jpg",
+    "Beans & Shrimp Fried Rice.jpg",
+    "Brinjal with Minced Meat.jpg",
+    "Chilli Pan Mee.jpg",
+    "Chinese Cabbage Wrapped Meatballs.jpg",
+    "Curry Noodles.jpg",
+    "Dried Mee Pok with Shredded Chicken.jpg",
+    "Mala Drypot.jpg",
+    "Mapo Tofu.jpg",
+    "Pork Dumplings.jpg",
+    "Rice Wine Steamed Chicken Legs.jpg",
+    "Siong Tong Lala.jpg",
+    "Sleeping Noodles.jpg",
+    "Stir-fried Udon with Vegetables.jpg",
+    "Winter Melon Pork Ribs Soup.jpg",
+    "Yong Tau Foo.jpg"
   ],
-  "Korean": [],
-  "Japanese": [],
+  "Desserts": [
+    "Banana Bread with Chocolate Chips.jpg",
+    "Black Forest.jpg",
+    "Chocolate Cake.jpg",
+    "Lemon Drizzled Cake.jpg",
+    "Orange Loaf.jpg",
+    "Pancakes with Seasonal Fruits.jpg",
+    "Roasted Nuts.jpg",
+    "Shanghai Mooncakes.jpg",
+    "Sweet Potato Tang Sui.jpg",
+    "Tang Yuen.jpg",
+    "Yoghurt Lollies.jpg"
+  ],
+  "Drinks": [
+    "Sangria.jpg"
+  ],
+  "Fusion": [
+    "Bacon Fried Rice & Lamb Chop.jpg",
+    "Gochujang Chicken Skewers with Pineapples and Zucchini.jpg",
+    "Vegan Sausage Gochujang Pasta.jpg"
+  ],
+  "Indian": [
+    "Chicken Curry & Naan.jpg"
+  ],
+  "Japanese": [
+    "Cold Soba with Kaarage Chickens.jpg",
+    "Oyakodon.jpg",
+    "Salmon Chazuke.jpg",
+    "Sukiyaki.jpg",
+    "Teriyaki Chicken and Crab Meat Maki.jpg",
+    "Udon Soup with Teriyaki Chicken & Onsen Egg.jpg"
+  ],
+  "Korean": [
+    "Budae Jiggae.jpg",
+    "Chicken Bibimbap.jpg",
+    "Pear Puree Beef Bulgogi.jpg",
+    "Seafood Pajeon.jpg"
+  ],
+  "Malaysian": [
+    "Chicken Pongteh with Shiitake Mushrooms.jpg",
+    "Nasi Lemak.jpg"
+  ],
   "Western": [
+    "All'Arrabbiata.jpg",
+    "Bagel with Scrambled Eggs and Smoked Salmon.jpg",
+    "Baked Chicken & Mash.jpg",
+    "Big Breakfast.jpg",
+    "Breakfast Casserole with Sausages.jpg",
     "Caesar Salad with Grilled Mackerel.jpg",
-    "Italian Kale & Sausage Soup.jpg"
+    "Charcuterie.jpg",
+    "Cheese Baked Rice.jpg",
+    "Chickpeas and Spinach Salad with Peanut Dressing.jpg",
+    "Classic Burger with Airfryer Fries.jpg",
+    "Crab Meat Salad Croissant.jpg",
+    "Eggplant Parmigiana.jpg",
+    "Halloween Casserole in Bell Peppers.jpg",
+    "Homemade Meatballs with Black Pepper Sauce.jpg",
+    "Hot Honey Halloumi Salad with Pomegranate.jpg",
+    "Italian Kale & Sausage Soup.jpg",
+    "Mangoes & Sweet Potato Salad.jpg",
+    "Meatballs Pasta.jpg",
+    "Meatballs Sandwich.jpg",
+    "Oven Roasted Squids and Potatoes.jpg",
+    "Pesto Penne with a side of Tenderstem Broccoli and Chickens.jpg",
+    "Pesto Sausages and Chicken with Sweet Potato Mash.jpg",
+    "Plant Based Burger.jpg",
+    "Roasted Chicken with Black Pepper Sauce.jpg",
+    "Rosti, Spinach, & Poached Eggs.jpg",
+    "SF Clam Chowder.jpg",
+    "Shepherd's Pie.jpg",
+    "Spinach & Ricotta Quiche.jpg",
+    "Steak Sandwich.jpg"
   ]
 }
