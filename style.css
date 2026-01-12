@@ -8,7 +8,9 @@ body {
     font-family: 'Georgia', serif;
     line-height: 1.6;
     color: #333;
-    background: white;
+    background:
+        repeating-conic-gradient(#FFB6C1 0% 25%, #FFFFFF 0% 50%)
+        50% / 120px 120px;
     min-height: 100vh;
 }
 
@@ -16,12 +18,19 @@ header {
     background: transparent;
     color: #333;
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 3rem 1rem 2rem;
 }
 
 header h1 {
     font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    margin: 0 auto;
+    color: #D81B60;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow:
+        3px 3px 0px #FFF,
+        4px 4px 0px rgba(0, 0, 0, 0.2);
+    font-family: 'Georgia', serif;
 }
 
 .tagline {
@@ -132,10 +141,54 @@ main {
 }
 
 .photo-category {
-    color: #999;
-    font-size: 0.75rem;
-    margin-top: 0.25rem;
+    color: white;
+    font-size: 0.72rem;
+    margin-top: 0.5rem;
     font-family: 'Arial', sans-serif;
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Category color textboxes */
+.photo-card[data-category="Chinese"] .photo-category {
+    background: #FF4757;
+}
+
+.photo-card[data-category="Desserts"] .photo-category {
+    background: #FF69B4;
+}
+
+.photo-card[data-category="Drinks"] .photo-category {
+    background: #4682B4;
+}
+
+.photo-card[data-category="Fusion"] .photo-category {
+    background: #9B59B6;
+}
+
+.photo-card[data-category="Indian"] .photo-category {
+    background: #FF8C00;
+}
+
+.photo-card[data-category="Japanese"] .photo-category {
+    background: #FF85A2;
+}
+
+.photo-card[data-category="Korean"] .photo-category {
+    background: #E74C3C;
+}
+
+.photo-card[data-category="Malaysian"] .photo-category {
+    background: #27AE60;
+}
+
+.photo-card[data-category="Western"] .photo-category {
+    background: #3498DB;
 }
 
 /* Hidden class for filtering */
