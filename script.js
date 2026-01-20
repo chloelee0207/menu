@@ -1,3 +1,7 @@
+// ============================================
+// ARTISAN MARKET STALL - Interactive Gallery
+// ============================================
+
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
     // Force hide lightbox immediately
@@ -14,49 +18,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Load and render the photo gallery
 async function loadGallery() {
-    console.log('Loading gallery...');
     try {
         const response = await fetch('photos.json');
-        console.log('Fetched photos.json, status:', response.status);
         const data = await response.json();
-        console.log('Photos data:', data);
         renderGallery(data);
     } catch (error) {
         console.error('Error loading photos:', error);
         document.getElementById('gallery').innerHTML =
-            '<p style="text-align: center; color: #666; padding: 2rem;">No photos to display yet. Add photos to get started!</p>';
+            `<p style="text-align: center; color: var(--text-muted); padding: 2rem; grid-column: 1 / -1;">
+                No photos to display yet. Add photos to get started!
+            </p>`;
     }
+}
+
+// Generate a random rotation within a range
+function getRandomRotation(min = -3, max = 3) {
+    return (Math.random() * (max - min) + min).toFixed(2);
+}
+
+// Generate a random animation delay for staggered entrance
+function getStaggerDelay(index, baseDelay = 0.05) {
+    return (index * baseDelay).toFixed(2);
 }
 
 // Render gallery from JSON data
 function renderGallery(data) {
-    console.log('Rendering gallery with data:', data);
     const gallery = document.getElementById('gallery');
     gallery.innerHTML = ''; // Clear existing content
 
+    let cardIndex = 0;
+
     // Loop through each category
     for (const [category, filenames] of Object.entries(data)) {
-        console.log(`Processing category: ${category}, files:`, filenames);
         filenames.forEach(filename => {
-            console.log(`Creating card for: ${filename}`);
-            const photoCard = createPhotoCard(filename, category);
+            const photoCard = createPhotoCard(filename, category, cardIndex);
             gallery.appendChild(photoCard);
+            cardIndex++;
         });
     }
 
     // If no photos exist
     if (gallery.children.length === 0) {
         gallery.innerHTML =
-            '<p style="text-align: center; color: #666; padding: 2rem; grid-column: 1 / -1;">No photos to display yet. Add photos to get started!</p>';
+            `<p style="text-align: center; color: var(--text-muted); padding: 2rem; grid-column: 1 / -1;">
+                No photos to display yet. Add photos to get started!
+            </p>`;
     }
-    console.log('Gallery render complete. Total cards:', gallery.children.length);
 }
 
-// Create a photo card element
-function createPhotoCard(filename, category) {
+// Create a photo card element with organic styling
+function createPhotoCard(filename, category, index) {
     const card = document.createElement('div');
     card.className = 'photo-card';
     card.dataset.category = category;
+
+    // Apply organic rotation (scattered polaroid effect)
+    const rotation = getRandomRotation(-4, 4);
+    card.style.setProperty('--rotation', `${rotation}deg`);
+
+    // Apply random tape rotation
+    const tapeRotation = getRandomRotation(-8, 8);
+    card.style.setProperty('--tape-rotation', `${tapeRotation}deg`);
+
+    // Apply staggered animation delay
+    const delay = getStaggerDelay(index, 0.06);
+    card.style.animationDelay = `${delay}s`;
 
     // Extract dish name from filename (remove extension)
     const dishName = filename.replace(/\.[^/.]+$/, '');
@@ -69,20 +95,25 @@ function createPhotoCard(filename, category) {
 
     // Handle image load errors
     img.onerror = () => {
-        img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="250" height="250"%3E%3Crect fill="%23f0f0f0" width="250" height="250"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23999" font-family="Arial" font-size="14"%3EImage not found%3C/text%3E%3C/svg%3E';
-        console.warn(`Image not found: photos/${category}/${filename}`);
+        img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="250" height="250"%3E%3Crect fill="%23f5e6d3" width="250" height="250"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%236b5d4d" font-family="Outfit, sans-serif" font-size="14"%3EPhoto coming soon%3C/text%3E%3C/svg%3E';
     };
 
-    // Create caption
+    // Create caption container
     const caption = document.createElement('div');
     caption.className = 'photo-caption';
 
+    // Create title
     const title = document.createElement('h3');
     title.textContent = dishName;
 
+    // Create category badge with slight rotation
     const categoryLabel = document.createElement('p');
     categoryLabel.className = 'photo-category';
     categoryLabel.textContent = category;
+
+    // Apply random badge rotation
+    const badgeRotation = getRandomRotation(-4, 4);
+    categoryLabel.style.setProperty('--badge-rotation', `${badgeRotation}deg`);
 
     caption.appendChild(title);
     caption.appendChild(categoryLabel);
@@ -105,28 +136,30 @@ function setupFilters() {
 
     if (categoryDropdown) {
         categoryDropdown.addEventListener('change', (e) => {
-            // Get selected category from dropdown value
             const selectedCategory = e.target.value;
-
-            // Filter photos
             filterPhotos(selectedCategory);
         });
     }
 }
 
-// Filter photos by category
+// Filter photos by category with animation
 function filterPhotos(category) {
     const photoCards = document.querySelectorAll('.photo-card');
+    let visibleIndex = 0;
 
     photoCards.forEach(card => {
-        if (category === 'all') {
+        if (category === 'all' || card.dataset.category === category) {
             card.classList.remove('hidden');
+
+            // Re-trigger entrance animation with new stagger
+            card.style.animation = 'none';
+            card.offsetHeight; // Trigger reflow
+            card.style.animation = null;
+            card.style.animationDelay = `${getStaggerDelay(visibleIndex, 0.04)}s`;
+
+            visibleIndex++;
         } else {
-            if (card.dataset.category === category) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
+            card.classList.add('hidden');
         }
     });
 }
@@ -135,6 +168,7 @@ function filterPhotos(category) {
 function setupLightbox() {
     const lightbox = document.getElementById('lightbox');
     const closeBtn = document.getElementById('close-lightbox');
+    const lightboxFrame = document.querySelector('.lightbox-frame');
 
     // Make sure lightbox is hidden on page load
     lightbox.classList.add('hidden');
@@ -142,24 +176,28 @@ function setupLightbox() {
 
     // Close lightbox on X button click
     closeBtn.addEventListener('click', (e) => {
-        console.log('Close button clicked');
         e.preventDefault();
         e.stopPropagation();
         closeLightbox();
     });
 
-    // Close lightbox on clicking outside the image
+    // Close lightbox on clicking outside the frame
     lightbox.addEventListener('click', (e) => {
-        console.log('Lightbox clicked', e.target);
-        if (e.target === lightbox || e.target.classList.contains('close-btn')) {
+        if (e.target === lightbox) {
             closeLightbox();
         }
     });
 
+    // Prevent clicks on the frame from closing
+    if (lightboxFrame) {
+        lightboxFrame.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
     // Close lightbox on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
-            console.log('Escape pressed');
             closeLightbox();
         }
     });
@@ -182,10 +220,8 @@ function openLightbox(imageSrc, dishName) {
 
 // Close lightbox
 function closeLightbox() {
-    console.log('Closing lightbox...');
     const lightbox = document.getElementById('lightbox');
     lightbox.classList.add('hidden');
     lightbox.style.display = 'none';
     document.body.style.overflow = ''; // Restore scrolling
-    console.log('Lightbox closed');
 }
