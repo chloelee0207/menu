@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chloe and Shern's Restaurant</title>
+    <title>Chloe and Shern's Kitchen</title>
+    <!-- Google Fonts: Fraunces (quirky serif) + Outfit (friendly sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Decorative corner doodles -->
+    <div class="corner-doodle top-left"></div>
+    <div class="corner-doodle top-right"></div>
+
     <header>
-        <h1>Chloe and Shern's Restaurant</h1>
+        <div class="header-content">
+            <p class="header-tagline">~ homemade with love ~</p>
+            <h1>Chloe & Shern's Kitchen</h1>
+            <p class="header-subtitle">Our culinary adventures, one dish at a time</p>
+        </div>
     </header>
 
     <nav class="category-filters">
-        <label for="category-select">Filter by Category:</label>
+        <span class="filter-label">Browse by cuisine:</span>
         <select id="category-select" class="category-dropdown">
-            <option value="all">All</option>
+            <option value="all">All Dishes</option>
             <option value="Chinese">Chinese</option>
             <option value="Desserts">Desserts</option>
             <option value="Drinks">Drinks</option>
@@ -27,6 +39,11 @@
         </select>
     </nav>
 
+    <!-- Decorative divider -->
+    <div class="divider">
+        <span class="divider-icon">✿</span>
+    </div>
+
     <main>
         <div class="gallery-grid" id="gallery">
             <!-- Photos will be dynamically inserted here by JavaScript -->
@@ -35,13 +52,19 @@
 
     <!-- Lightbox Modal -->
     <div class="lightbox hidden" id="lightbox">
-        <span class="close-btn" id="close-lightbox">&times;</span>
-        <img class="lightbox-img" id="lightbox-img" alt="">
-        <p class="lightbox-caption" id="lightbox-caption"></p>
+        <div class="lightbox-frame">
+            <span class="close-btn" id="close-lightbox">&times;</span>
+            <img class="lightbox-img" id="lightbox-img" alt="">
+            <div class="lightbox-caption-wrapper">
+                <p class="lightbox-caption" id="lightbox-caption"></p>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Chloe and Shern's Restaurant. All rights reserved.</p>
+        <div class="footer-doodle"></div>
+        <p>Made with <span class="heart">♥</span> by Chloe & Shern</p>
+        <p class="copyright">&copy; 2026 All rights reserved</p>
     </footer>
 
     <script src="script.js"></script>
